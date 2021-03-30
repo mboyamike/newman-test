@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
+        node-version: [12.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -28,7 +28,6 @@ jobs:
     - run: npm install
     - run: npx prisma migrate dev --name init
     - run: npx prisma db seed --preview-feature
-    - run: npm run dev
     - name: Newman Action
       uses: matt-ball/newman-action@v0.2.4
       with:
